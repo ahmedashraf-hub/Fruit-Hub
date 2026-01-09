@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruit_hub/core/utils/app_assets';
 
 class OnboardingPageViewItem extends StatelessWidget {
   const OnboardingPageViewItem({
@@ -10,9 +9,10 @@ class OnboardingPageViewItem extends StatelessWidget {
     required this.title,
     required this.subTitle,
   });
-  final String image, backgroundImage;
-  final String subTitle;
+
+  final String image, backgroundImage, subTitle;
   final Widget title;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,17 +22,12 @@ class OnboardingPageViewItem extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height * 0.5,
           child: Stack(
             children: [
-              SvgPicture.asset(
-                Assets.imagesOnbardingPageViewItem1BackgroundImage,
-                fit: BoxFit.fill,
-              ),
+              SvgPicture.asset(backgroundImage, fit: BoxFit.fill),
               Positioned(
                 bottom: 0,
                 left: 0,
                 right: 0,
-                child: SvgPicture.asset(
-                  Assets.imagesOnbardingPageViewItem1Image,
-                ),
+                child: SvgPicture.asset(image),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -40,6 +35,13 @@ class OnboardingPageViewItem extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        const SizedBox(height: 64.0),
+        title,
+        const SizedBox(height: 24.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(subTitle, textAlign: TextAlign.center),
         ),
       ],
     );

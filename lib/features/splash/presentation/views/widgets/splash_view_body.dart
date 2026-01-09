@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruit_hub/core/utils/app_assets.dart';
+import 'package:fruit_hub/core/utils/app_assets';
 import 'package:fruit_hub/features/onboarding/presentation/views/onboarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -27,10 +27,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [SvgPicture.asset(AppAssets.imagesSplashPlant)],
+          children: [SvgPicture.asset(Assets.imagesSplashPlant)],
         ),
-        SvgPicture.asset(AppAssets.imagesSplashLogo),
-        SvgPicture.asset(AppAssets.imagesSplashSplashBottom, fit: BoxFit.fill),
+        SvgPicture.asset(Assets.imagesSplashLogo),
+        SvgPicture.asset(Assets.imagesSplashSplashBottom, fit: BoxFit.fill),
       ],
     );
   }
