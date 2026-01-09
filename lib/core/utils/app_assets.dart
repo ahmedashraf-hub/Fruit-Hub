@@ -4,16 +4,16 @@ class AppAssets {
   /// assets/images/app_icon.png
   static const String imagesAppIcon = "assets/images/app_icon.png";
 
-  /// Assets for imagesSpalshLogo
-  /// assets/images/spalsh/logo.svg
-  static const String imagesSpalshLogo = "assets/images/spalsh/logo.svg";
+  /// Assets for imagesSplashLogo
+  /// assets/images/splash/logo.svg
+  static const String imagesSplashLogo = "assets/images/splash/logo.svg";
 
-  /// Assets for imagesSpalshPlant
-  /// assets/images/spalsh/plant.svg
-  static const String imagesSpalshPlant = "assets/images/spalsh/plant.svg";
+  /// Assets for imagesSplashPlant
+  /// assets/images/splash/plant.svg
+  static const String imagesSplashPlant = "assets/images/splash/plant.svg";
 
-  /// Assets for imagesSpalshSplashBottom
-  /// assets/images/spalsh/splash_bottom.svg
-  static const String imagesSpalshSplashBottom =
-      "assets/images/spalsh/splash_bottom.svg";
+  /// Assets for imagesSplashSplashBottom
+  /// assets/images/splash/splash_bottom.svg
+  static const String imagesSplashSplashBottom =
+      "assets/images/splash/splash_bottom.svg";
 }
