@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/core/utils/app_assets';
+import 'package:fruit_hub/core/utils/app_assets.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/widgets/onboarding_page_view_item.dart';
 
 class OnboardingPageView extends StatelessWidget {

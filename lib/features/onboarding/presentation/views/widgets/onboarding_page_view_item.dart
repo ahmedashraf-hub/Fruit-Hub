@@ -19,7 +19,7 @@ class OnboardingPageViewItem extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          height: MediaQuery.sizeOf(context).height * 0.5,
+          height: MediaQuery.sizeOf(context).height * 0.4,
           child: Stack(
             children: [
               SvgPicture.asset(backgroundImage, fit: BoxFit.fill),
