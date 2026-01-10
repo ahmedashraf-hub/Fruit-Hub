@@ -15,6 +15,7 @@ class FruitHub extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Cairo'),
 
       localizationsDelegates: [
         S.delegate,

@@ -14,16 +14,21 @@ class OnboardingViewBody extends StatefulWidget {
 
 class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   late PageController pageController;
-  var currentPage = 0;
+  int currentPage = 0;
 
   @override
   void initState() {
-    pageController = PageController();
-    pageController.addListener(() {
-      currentPage = pageController.page!.round();
-      setState(() {});
-    });
     super.initState();
+    pageController = PageController();
+
+    pageController.addListener(() {
+      final page = pageController.page?.round() ?? 0;
+      if (page != currentPage) {
+        setState(() {
+          currentPage = page;
+        });
+      }
+    });
   }
 
   @override
@@ -36,26 +41,39 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: OnboardingPageView(pageController: pageController)),
+        Expanded(
+          child: OnboardingPageView(
+            pageController: pageController,
+            onSkip: () {
+              pageController.animateToPage(
+                1,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+        ),
         DotsIndicator(
           dotsCount: 2,
+          position: currentPage.toDouble(),
           decorator: DotsDecorator(
             activeColor: AppColors.primaryColor,
+
             color: currentPage == 1
                 ? AppColors.primaryColor
-                : AppColors.primaryColor.withValues(alpha: 0.5),
+                : AppColors.primaryColor.withValues(alpha: 0.25),
           ),
         ),
         const SizedBox(height: 29),
         Visibility(
-          visible: currentPage == 1 ? true : false,
+          visible: currentPage == 1,
           maintainState: true,
           maintainAnimation: true,
           maintainSize: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
             child: CustomButton(
-              onprerssed: () {},
+              onPressed: () {},
               backgroundColor: AppColors.primaryColor,
               title: 'ابدأ الان',
               fontColor: Colors.white,
