@@ -3,13 +3,19 @@ import 'package:fruit_hub/core/utils/app_assets.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/widgets/onboarding_page_view_item.dart';
 
 class OnboardingPageView extends StatelessWidget {
-  const OnboardingPageView({super.key});
+  const OnboardingPageView({super.key, required this.pageController});
+
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: [
         OnboardingPageViewItem(
+          isVisible:
+              (pageController.hasClients ? pageController.page!.round() : 0) ==
+              0,
           image: Assets.imagesOnbardingPageViewItem1Image,
           backgroundImage: Assets.imagesOnbardingPageViewItem1BackgroundImage,
           title: Row(
@@ -20,6 +26,9 @@ class OnboardingPageView extends StatelessWidget {
               'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
         ),
         OnboardingPageViewItem(
+          isVisible:
+              (pageController.hasClients ? pageController.page!.round() : 0) !=
+              0,
           image: Assets.imagesOnbardingPageViewItem2Image,
           backgroundImage: Assets.imagesOnbardingPageViewItem2BackgroundImage,
           title: Row(

@@ -5,29 +5,61 @@ import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/widgets/onboarding_page_view.dart';
 
-class OnboardingViewBody extends StatelessWidget {
+class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
+
+  @override
+  State<OnboardingViewBody> createState() => _OnboardingViewBodyState();
+}
+
+class _OnboardingViewBodyState extends State<OnboardingViewBody> {
+  late PageController pageController;
+  var currentPage = 0;
+
+  @override
+  void initState() {
+    pageController = PageController();
+    pageController.addListener(() {
+      currentPage = pageController.page!.round();
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: OnboardingPageView()),
+        Expanded(child: OnboardingPageView(pageController: pageController)),
         DotsIndicator(
           dotsCount: 2,
           decorator: DotsDecorator(
             activeColor: AppColors.primaryColor,
-            color: AppColors.primaryColor.withValues(alpha: 0.5),
+            color: currentPage == 1
+                ? AppColors.primaryColor
+                : AppColors.primaryColor.withValues(alpha: 0.5),
           ),
         ),
         const SizedBox(height: 29),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-          child: CustomButton(
-            onprerssed: () {},
-            backgroundColor: AppColors.primaryColor,
-            title: 'ابدأ الان',
-            fontColor: Colors.white,
+        Visibility(
+          visible: currentPage == 1 ? true : false,
+          maintainState: true,
+          maintainAnimation: true,
+          maintainSize: true,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+            child: CustomButton(
+              onprerssed: () {},
+              backgroundColor: AppColors.primaryColor,
+              title: 'ابدأ الان',
+              fontColor: Colors.white,
+            ),
           ),
         ),
         const SizedBox(height: 43),

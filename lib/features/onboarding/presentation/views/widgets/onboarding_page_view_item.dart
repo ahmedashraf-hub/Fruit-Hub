@@ -8,11 +8,12 @@ class OnboardingPageViewItem extends StatelessWidget {
     required this.backgroundImage,
     required this.title,
     required this.subTitle,
+    required this.isVisible,
   });
 
   final String image, backgroundImage, subTitle;
   final Widget title;
-
+  final bool isVisible;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,9 +30,12 @@ class OnboardingPageViewItem extends StatelessWidget {
                 right: 0,
                 child: SvgPicture.asset(image),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(onPressed: () {}, child: Text('تخط')),
+              Visibility(
+                visible: isVisible,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextButton(onPressed: () {}, child: Text('تخط')),
+                ),
               ),
             ],
           ),
