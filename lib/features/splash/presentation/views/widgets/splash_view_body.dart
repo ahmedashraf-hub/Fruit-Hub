@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub/constants.dart';
+import 'package:fruit_hub/core/services/prefs.dart';
 import 'package:fruit_hub/core/utils/app_assets.dart';
 import 'package:fruit_hub/features/onboarding/presentation/views/onboarding_view.dart';
 
@@ -36,8 +38,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void executeNavigation() {
+    bool isOnboardingViewSeen = Prefs.getBool(kIsOnboardingViewSeen);
     Future.delayed(_splashDuration, () {
-      if (mounted) {
+      if (isOnboardingViewSeen) {
         Navigator.pushReplacementNamed(context, OnboardingView.routeName);
       }
     });
