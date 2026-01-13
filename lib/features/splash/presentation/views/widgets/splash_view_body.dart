@@ -41,6 +41,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void executeNavigation() {
     bool isOnboardingViewSeen = Prefs.getBool(kIsOnboardingViewSeen);
     Future.delayed(_splashDuration, () {
+      if (!mounted) return;
       if (isOnboardingViewSeen) {
         Navigator.pushReplacementNamed(context, LoginView.routeName);
       } else {
