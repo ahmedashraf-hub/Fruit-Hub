@@ -23,7 +23,9 @@ class FruitHub extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Cairo',
         scaffoldBackgroundColor: Colors.white,
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.lightPrimaryColor,
+        ),
       ),
 
       localizationsDelegates: [

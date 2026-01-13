@@ -59,11 +59,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           dotsCount: 2,
           position: currentPage.toDouble(),
           decorator: DotsDecorator(
-            activeColor: AppColors.primaryColor,
+            activeColor: AppColors.lightPrimaryColor,
 
             color: currentPage == 1
-                ? AppColors.primaryColor
-                : AppColors.primaryColor.withValues(alpha: 0.25),
+                ? AppColors.lightPrimaryColor
+                : AppColors.lightPrimaryColor.withValues(alpha: 0.25),
           ),
         ),
         const SizedBox(height: 29),
@@ -79,7 +79,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 Prefs.setBool(kIsOnboardingViewSeen, true);
                 Navigator.of(context).pushReplacementNamed(LoginView.routeName);
               },
-              backgroundColor: AppColors.primaryColor,
+              backgroundColor: AppColors.lightPrimaryColor,
               title: 'ابدأ الان',
               fontColor: Colors.white,
             ),

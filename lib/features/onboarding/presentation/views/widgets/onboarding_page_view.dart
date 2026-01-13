@@ -37,7 +37,7 @@ class OnboardingPageView extends StatelessWidget {
               Text(
                 'Fruit',
                 style: AppTextStyles.bold23.copyWith(
-                  color: AppColors.primaryColor,
+                  color: AppColors.lightPrimaryColor,
                 ),
               ),
             ],
