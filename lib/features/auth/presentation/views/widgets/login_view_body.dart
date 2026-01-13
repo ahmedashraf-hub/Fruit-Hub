@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/constants.dart';
+import 'package:fruit_hub/core/utils/app_assets.dart';
 import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/core/utils/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
 import 'package:fruit_hub/core/widgets/custom_text_form_field.dart';
 import 'package:fruit_hub/core/widgets/don_not_have_an_account.dart';
 import 'package:fruit_hub/core/widgets/or_divider.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/social_login_button.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -35,7 +37,7 @@ class LoginViewBody extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    'هل نسيت كلمة المرور؟',
+                    'نسيت كلمة المرور؟',
                     style: AppTextStyles.semiBold13.copyWith(
                       color: AppColors.lightPrimaryColor,
                     ),
@@ -49,6 +51,25 @@ class LoginViewBody extends StatelessWidget {
             DonNotHaveAnAccount(),
             const SizedBox(height: 33.0),
             const OrDivider(),
+            const SizedBox(height: 16.0),
+            SocialLoginButton(
+              title: 'تسجيل بواسطة جوجل',
+              image: Assets.imagesLoginGoogleIcon,
+              onPressed: () {},
+            ),
+            const SizedBox(height: 16.0),
+            SocialLoginButton(
+              title: 'تسجيل بواسطة أبل',
+              image: Assets.imagesLoginFacebookIcon,
+              onPressed: () {},
+            ),
+            const SizedBox(height: 16.0),
+            SocialLoginButton(
+              title: 'تسجيل بواسطة فيسبوك',
+              image: Assets.imagesLoginApplIcon,
+              onPressed: () {},
+            ),
+            const SizedBox(height: 33.0),
           ],
         ),
       ),
