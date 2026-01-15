@@ -5,7 +5,8 @@ import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/core/utils/app_text_styles.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
 import 'package:fruit_hub/core/widgets/custom_text_form_field.dart';
-import 'package:fruit_hub/core/widgets/don_not_have_an_account.dart';
+import 'package:fruit_hub/features/auth/presentation/views/forgot_password_view.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/don_not_have_an_account.dart';
 import 'package:fruit_hub/core/widgets/or_divider.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/social_login_button.dart';
 
@@ -34,8 +35,10 @@ class LoginViewBody extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(
-                  onPressed: () {},
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(contex, ForgotPasswordView.routeName);
+                  },
                   child: Text(
                     'نسيت كلمة المرور؟',
                     style: AppTextStyles.semiBold13.copyWith(
