@@ -46,6 +46,7 @@ dependencies:
   bloc: ^9.2.0
   flutter_bloc: ^9.1.1
   meta: ^1.17.0
+  get_it: ^9.2.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.14.4"
